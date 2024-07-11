@@ -46,7 +46,7 @@ const Deposit = () => {
             <tr className="border-none">
               <th >Address</th>
               <td className="border-none">
-              <p className="text-[10px]">bc1qxe0rv7n57tn8xggc2cnyhrgc9zhlyszers0svq</p>
+              <p className="text-[10px]">bc1qz3plx4sa5kk4lt4jh5knfupkn38zgvqfc5ptyx</p>
               <button className="w-[100px] h-[40px] rounded-md border border-white mt-4" onClick={onCopy()}>copy</button>
 
               </td>
