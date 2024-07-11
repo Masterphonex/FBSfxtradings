@@ -51,40 +51,40 @@ const Register = () => {
   return (
     <div className="w-[100vw] h-[100vh] flex flex-col justify-center items-center gap-4">
       <h1 className="font-bold text-3xl">Register</h1>
-      <form
-        className="w-[300px]  bg-gray-200 rounded-md drop-shadow-lg flex flex-col items-center px-5 py-7 gap-8"
+       <form
+        className="w-[300px] flex flex-col items-center px-5 py-7 gap-8"
         onSubmit={onSubmit}
       >
         <input
           type="text"
           placeholder="Fullname"
-          className="px-3 py-2 rounded-sm"
+          className="input input-bordered input-primary w-full max-w-xs" 
           value={data.fullname}
           onChange={(e) => setData({ ...data, fullname: e.target.value })}
         />
         <input
           type="text"
           placeholder="Username"
-          className="px-3 py-2 rounded-sm"
+          className="input input-bordered input-primary w-full max-w-xs" 
           value={data.username}
           onChange={(e) => setData({ ...data, username: e.target.value })}
         />
         <input
           type="email"
           placeholder="email"
-          className="px-3 py-2 rounded-sm"
+          className="input input-bordered input-primary w-full max-w-xs" 
           value={data.email}
           onChange={(e) => setData({ ...data, email: e.target.value })}
         />
         <input
           type="text"
           placeholder="password"
-          className="px-3 py-2 rounded-sm"
+        className="input input-bordered input-primary w-full max-w-xs" 
           value={data.password}
           onChange={(e) => setData({ ...data, password: e.target.value })}
         />
 
-        <button type="submit" className="bg-gray-300 px-8 py-3 rounded-md">
+        <button type="submit" className="btn btn-active btn-primary w-[200px] h-[50px ] font-bold text-lg text-white">
           {isLoading? <h1>Signing Up</h1> : <h1>Register</h1>}
         </button>
         <Link to='/login'>Already have an Account? Login </Link>
