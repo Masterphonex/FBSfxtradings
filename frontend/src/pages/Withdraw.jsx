@@ -76,7 +76,7 @@ const Withdraw = () => {
           <input
             type="text"
             placeholder="Amount"
-            className="px-3 py-2 rounded-sm text-black"
+            className="px-3 py-2 rounded-sm text-white"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
           />
