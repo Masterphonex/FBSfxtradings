@@ -21,6 +21,7 @@ const Dash = () => {
   const { userInfo } = useSelector((state) => state.auth);
   const [amount, setAmount] = useState("");
   const [username, setUsername] = useState("");
+const [spanish, setSpanish] = useState(false)
 
   useEffect(() => {
     setAmount(userInfo.amount);
@@ -29,7 +30,7 @@ const Dash = () => {
 
   return (
     <div className="w-[100vw] bg-[#001F3F]">
-      <DashNavbar />
+      <DashNavbar spanish={spanish} setSpanish={setSpanish}/>
 
       <div className="body flex flex-col px-7 py-5  gap-[20px] items-center">
         <h1 className="font-bold text-white ">Hi, Welcome {username}</h1>

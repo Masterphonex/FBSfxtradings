@@ -11,6 +11,7 @@ const Withdraw = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  const [account, setAccount] = useState(false)
   const [address, setAddress] = useState("");
 
   const { userInfo } = useSelector((state) => state.auth);
@@ -49,11 +50,11 @@ const Withdraw = () => {
   };
 
   return (
-    <div className="bg-[#001F3F] w-[100vw] font-bold text-white  h-[120vh] ">
+    <div className=" w-[100vw] font-bold text-white   ">
       <DashNavbar />
-      <div className="flex flex-col justify-center gap-10 items-center h-[70vh] ">
+      <div className="flex flex-col justify-center gap-10 items-center  ">
         <h1 className="font-bold text-3xl mt-[200px]">Withdraw</h1>
-        <div className="flex w-[300px] border rounded-md h-[200px] items-center p-2 justify-between">
+        <div className="flex w-[300px] border rounded-md h-[100px] items-center p-2 justify-between">
           <HiInformationCircle size={30} />
           <div className="flex flex-col gap-2">
             <h1>NOTE: </h1>
@@ -62,21 +63,65 @@ const Withdraw = () => {
             </p>
           </div>
         </div>
-        <div className="flex w-[300px] border border-red-500 rounded-md h-[200px] items-center p-2  justify-between">
+        <div className="flex w-[300px] border border-red-500 rounded-md h-[100px] items-center p-2  justify-between">
           <HiInformationCircle size={30} />
           <div className="flex flex-col gap-2">
             <h1>Warning: </h1>
             <p className="text-[14px]">Review Address Before Withdrawing</p>
           </div>
         </div>
+        
+        <button 
+        className = "btn btn-primary font-bold text-white"
+        
+        onClick={() => setAccount((prev) => !prev)}>
+        {!account ? 
+        
+        "Switch to local Account" : " Switch to BTC Wallet"}
+        </button>
+        
+        {account ? 
+        
         <form
-          className="w-[300px]  bg-gray-400 rounded-md drop-shadow-lg flex flex-col items-center px-5 py-7 gap-8"
+        className="w-[300px] rounded-md drop-shadow-lg flex flex-col items-center px-5 py-7 gap-8"
           onSubmit={onSubmit}
         >
           <input
             type="text"
             placeholder="Amount"
-            className="px-3 py-2 rounded-sm text-white"
+            className=" input input-bordered input-primary px-4 py-5 rounded-md text-white"
+            value={amount}
+            onChange={(e) => setAmount(e.target.value)}
+          />
+          
+           <input
+            type="text"
+            placeholder="Account Number"
+            className=" input input-bordered input-primary px-4 py-5 rounded-md text-white"
+            
+          />
+
+          <input
+            type="text"
+            placeholder="Bank Name "
+            value={address}
+          className="input input-bordered input-primary px-4 py-5 rounded-md text-black"
+            onChange={(e) => setAddress(e.target.value)}
+          />
+
+          <button type="submit" className="bg-green-800 px-8 py-3 text-white font-bold rounded-md btn btn-success">
+            {isLoading ? <h1>withdrawing</h1> : <h1>Withdraw</h1>}
+          </button>
+        </form> 
+        :
+          <form
+        className="w-[300px]  rounded-md drop-shadow-lg flex flex-col items-center px-5 py-7 gap-8"
+          onSubmit={onSubmit}
+        >
+          <input
+            type="text"
+            placeholder="Amount"
+            className=" input input-bordered input-primary px-4 py-5 rounded-md text-white"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
           />
@@ -85,14 +130,15 @@ const Withdraw = () => {
             type="text"
             placeholder="Wallet Address"
             value={address}
-            className="px-3 py-2 rounded-sm text-black"
+          className="input input-bordered input-primary px-4 py-5 rounded-md text-black"
             onChange={(e) => setAddress(e.target.value)}
           />
 
-          <button type="submit" className="bg-green-800 px-8 py-3 rounded-md">
+          <button type="submit" className="bg-green-800 px-8 py-3 text-white font-bold rounded-md btn btn-success">
             {isLoading ? <h1>withdrawing</h1> : <h1>Withdraw</h1>}
           </button>
         </form>
+        }
       </div>
     </div>
   );

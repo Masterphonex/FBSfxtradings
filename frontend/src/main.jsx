@@ -26,6 +26,7 @@ import Deposit from "./pages/Deposit.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
+    
     <Route path="/" element={<App />}>
       {/* <Route path="/" element={<Home />}/> */}
       <Route path="/login" index element={<Login />} />
